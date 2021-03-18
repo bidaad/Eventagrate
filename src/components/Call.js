@@ -3,7 +3,7 @@ import AgoraRTC from "agora-rtc-sdk";
 let client = AgoraRTC.createClient({ mode: "live", codec: "h264" });
 
 const USER_ID = Math.floor(Math.random() * 1000000001);
-const APP_ID = "aed1787f4f1d41a0baf205dc0193f586";
+const APP_ID = "148ec8820eee48998dfff3de1a6fcdeb";
 
 export default class Call extends Component {
   localStream = AgoraRTC.createStream({
