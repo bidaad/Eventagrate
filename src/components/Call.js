@@ -90,7 +90,7 @@ export default class Call extends Component {
   }
 
   joinChannel = () => {
-    var token = generateToken();
+    var token = this.generateToken();
     let me = this;
     client.join(
       token,
