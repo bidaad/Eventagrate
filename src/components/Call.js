@@ -33,6 +33,7 @@ export default class Call extends Component {
     me.localStream.init(
       function() {
         console.log("getUserMedia successfully");
+        me.localStream.publish("agora_local")
         me.localStream.play("agora_local");
       },
       function(err) {
