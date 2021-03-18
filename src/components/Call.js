@@ -33,7 +33,14 @@ export default class Call extends Component {
     me.localStream.init(
       function() {
         console.log("getUserMedia successfully");
-        me.localStream.publish("agora_local")
+//        me.localStream.publish("agora_local")
+client.publish(me.localStream, function(err) {
+  console.log("Publish local stream error: " + err);
+});
+
+client.on("stream-published", function(evt) {
+  console.log("Publish local stream successfully");
+});
         me.localStream.play("agora_local");
       },
       function(err) {
@@ -99,13 +106,7 @@ export default class Call extends Component {
       USER_ID,
       function(uid) {
         console.log("User " + uid + " join channel successfully");
-        client.publish(me.localStream, function(err) {
-          console.log("Publish local stream error: " + err);
-        });
-
-        client.on("stream-published", function(evt) {
-          console.log("Publish local stream successfully");
-        });
+        
       },
       function(err) {
         console.log("Join channel failed", err);
