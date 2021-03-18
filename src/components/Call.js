@@ -85,10 +85,15 @@ export default class Call extends Component {
     );
   };
 
+  generateToken = () => {
+    return '006148ec8820eee48998dfff3de1a6fcdebIADneFyPfpLwLSWqMCR+wai0dC28KXYslCi2kQK3M5Zn5QrCxmsAAAAAEAC5X9YG3bJUYAEAAQDaslRg'
+  }
+
   joinChannel = () => {
+    var token = generateToken();
     let me = this;
     client.join(
-      null,
+      token,
       me.props.channel,
       USER_ID,
       function(uid) {
